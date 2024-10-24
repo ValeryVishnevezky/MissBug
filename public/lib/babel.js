@@ -18597,7 +18597,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// log is just a thin wrapper to console.log that prepends a timestamp
 	exports.log = function () {
-	  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+	//   console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
 	};
 
 	/**
@@ -20406,10 +20406,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  Scope.prototype.dump = function dump() {
 	    var sep = (0, _repeat2.default)("-", 60);
-	    console.log(sep);
+	    // console.log(sep);
 	    var scope = this;
 	    do {
-	      console.log("#", scope.block.type);
+	    //   console.log("#", scope.block.type);
 	      for (var name in scope.bindings) {
 	        var binding = scope.bindings[name];
 	        console.log(" -", name, {
@@ -20420,7 +20420,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	      }
 	    } while (scope = scope.parent);
-	    console.log(sep);
+	    // console.log(sep);
 	  };
 
 	  Scope.prototype.toArray = function toArray(node, i) {
