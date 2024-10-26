@@ -2,6 +2,7 @@ import fs from 'fs'
 import { utilService } from './util.service.js'
 
 const bugs = utilService.readJsonFile('data/bug.json')
+const PAGE_SIZE = 4
 
 export const bugService = {
     query,
@@ -10,8 +11,38 @@ export const bugService = {
     save
 }
 
-function query() {
+function query(filterBy) {
     return Promise.resolve(bugs)
+    .then(bugs => {
+        if (filterBy.title) {
+            const regex = new RegExp(filterBy.title, 'i')
+            bugs = bugs.filter(bug => regex.test(bug.title))
+        }
+        if (filterBy.minSeverity) {
+            bugs = bugs.filter(bug => bug.severity >= filterBy.minSeverity)
+        }
+        if (filterBy.createdAt) {
+            bugs = bugs.filter(bug => bug.createdAt === filterBy.createdAt)
+        }
+        if (filterBy.labels && filterBy.labels.length) {
+            bugs = bugs.filter(bug =>
+                bug.labels && bug.labels.some(label => filterBy.labels.includes(label))
+            );
+        }
+        if (filterBy.sortBy) {
+            const sortDir = filterBy.sortDir === '-1' ? -1 : 1
+            bugs = bugs.sort((a, b) => {
+                if (a[filterBy.sortBy] < b[filterBy.sortBy]) return -1 * sortDir
+                if (a[filterBy.sortBy] > b[filterBy.sortBy]) return 1 * sortDir
+                return 0
+            })
+        }
+        if (filterBy.pageIdx !== undefined) {
+            const startIdx = +filterBy.pageIdx * PAGE_SIZE
+            bugs = bugs.slice(startIdx, startIdx + PAGE_SIZE)
+        }
+        return bugs
+    })
 }
 
 function getById(id) {

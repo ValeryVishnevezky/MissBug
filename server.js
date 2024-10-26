@@ -9,9 +9,26 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(cookieParser())
 
+const port = 3030
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}/api/bug`)
+    loggerService.info(`Server listening on port http://127.0.0.1:${port}/`)
+})
+
 // List
 app.get('/api/bug', (req, res) => {
-    bugService.query()
+    const { title = '', minSeverity = '0', createdAt = '0', labels = '', sortBy = '',sortDir, pageIdx } = req.query
+
+    const filterBy = {
+        title,
+        minSeverity: +minSeverity,
+        createdAt: +createdAt,
+        labels,
+        sortBy,
+        sortDir,
+        pageIdx
+    }
+    bugService.query(filterBy)
     .then(bugs => res.send(bugs))
     .catch(err => {
         loggerService.error('Cannot get bugs', err)
@@ -65,7 +82,7 @@ app.get('/api/bug/:id', (req, res) => {
         .then(bug => res.send(bug))
         .catch(err => {
             loggerService.error('Cannot get bug', err)
-            res.status(500).send('Cannot get bug')
+            res.status(400).send('Cannot get bug')
         })
 })
 
@@ -76,11 +93,7 @@ app.delete('/api/bug/:id', (req, res) => {
         .then(() => res.send(`bug ${id} removed successfully!`))
         .catch(err => {
             loggerService.error('Cannot remove bug', err)
-            res.status(500).send('Cannot remove bug')
+            res.status(400).send('Cannot remove bug')
         })
 })
 
-const port = 3030
-app.listen(port, () =>
-    loggerService.info(`Server listening on port http://127.0.0.1:${port}/`)
-)

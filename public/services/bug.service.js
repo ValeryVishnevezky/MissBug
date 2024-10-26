@@ -1,8 +1,3 @@
-// import { storageService } from './async-storage.service.js'
-// import { utilService } from './util.service.js'
-
-// const STORAGE_KEY = 'bugDB'
-// _createBugs()
 const BASE_URL = '/api/bug/'
 
 export const bugService = {
@@ -10,10 +5,12 @@ export const bugService = {
     get,
     save,
     remove,
+    getDefaultFilter,
+    getFilterFromParams
 }
 
-function query() {
-    return axios.get(BASE_URL)
+function query(filterBy = getDefaultFilter()) {
+    return axios.get(BASE_URL, { params: filterBy })
         .then(bugs => bugs.data)
 }
 
@@ -37,31 +34,19 @@ function save(bug) {
     }
 }
 
-// function _createBugs() {
-//     let bugs = utilService.loadFromStorage(STORAGE_KEY)
-//     if (!bugs || !bugs.length) {
-//         bugs = [
-//             {
-//                 title: "Infinite Loop Detected",
-//                 severity: 4,
-//                 _id: "1NF1N1T3"
-//             },
-//             {
-//                 title: "Keyboard Not Found",
-//                 severity: 3,
-//                 _id: "K3YB0RD"
-//             },
-//             {
-//                 title: "404 Coffee Not Found",
-//                 severity: 2,
-//                 _id: "C0FF33"
-//             },
-//             {
-//                 title: "Unexpected Response",
-//                 severity: 1,
-//                 _id: "G0053"
-//             }
-//         ]
-//         utilService.saveToStorage(STORAGE_KEY, bugs)
-//     }
-// }
+function getDefaultFilter() {
+    return { title: '', minSeverity: 0, labels: '', createdAt: '', labels: '', sortBy: '', pageIdx: 0 }
+}
+
+function getFilterFromParams(searchParams = {}) {
+    const defaultFilter = getDefaultFilter()
+    return {
+        title: searchParams.title || defaultFilter.title,
+        minSeverity: searchParams.minSeverity || defaultFilter.minSeverity,
+        labels: searchParams.labels || defaultFilter.labels,
+        createdAt: searchParams.createdAt || defaultFilter.createdAt,
+        labels: searchParams.labels || defaultFilter.labels,
+        sortBy: searchParams.sortBy || defaultFilter.sortBy,
+        pageIdx: searchParams.pageIdx || defaultFilter.pageIdx
+    }
+}

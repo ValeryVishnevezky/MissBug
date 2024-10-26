@@ -1,112 +1,188 @@
 body {
-    margin: auto;
-    font-size: 20px;
+  margin: auto;
+  font-size: 20px;
 }
 
-
 header {
-    background-color: lightskyblue;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: lightskyblue;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #00355ba7;
 }
 
 .main-app {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
-    flex-grow: 1;
-    text-align: center;
-
+  flex-grow: 1;
+  text-align: center;
 }
 
 footer {
-    background-color: lightskyblue;
-    padding: 5px;
-    margin: 10px 0 0;
-    text-align: center;
+  background-color: lightskyblue;
+  padding: 5px;
+  margin: 10px 0 0;
+  text-align: center;
+  color: #00355ba7;
 }
 
 nav a {
-    display: inline-block;
-    margin: 3px;
-    padding: 10px;
-    border-bottom: 1px solid transparent;
-    text-decoration: none;
+  display: inline-block;
+  margin: 3px;
+  padding: 10px;
+  color: #00355ba7;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  font-size: 1.3rem;
 }
 
 nav a:hover {
-    border-bottom: 1px solid whitesmoke;
-    text-decoration: overline;
-    color: whitesmoke;
+  border-bottom: 1px solid whitesmoke;
+  text-decoration: none;
+  color: whitesmoke;
 }
 
 .main-title {
-    text-align: center;
-    color: rgba(36, 7, 7, 0.685);
-    font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: rgba(36, 7, 7, 0.685);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
 .user-msg {
-    color: white;
-    padding: 10px;
-    font-size: 1.4em;
-    position: fixed;
-    top: 0;
-    right: 0;
-    background-color: grey;
+  color: white;
+  padding: 10px;
+  font-size: 1.4em;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: grey;
 }
 
 .user-msg button {
-    float: right;
-    border: 0;
-    border-radius: 50%;
-    margin: 5px;
+  float: right;
+  border: 0;
+  border-radius: 50%;
+  margin: 5px;
 }
 
 .success {
-    background-color: rgb(41, 189, 73);
+  background-color: rgb(41, 189, 73);
 }
 
 .danger {
-    background-color: rgb(216, 59, 59);
+  background-color: rgb(216, 59, 59);
 }
 
+.home-page {
+  color: #003256c8;
+}
+
+.home-page img {
+  width: 400px;
+}
+
+.about-page {
+  color: #003256c8;
+}
 
 .bug-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-items: end;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: end;
 }
 
 .bug-preview {
-    background-color: #333;
-    color: whitesmoke;
-    border-radius: .2em;
-    margin: 5px;
-    text-align: center;
-    padding: 5px;
+  background-color: rgba(135, 206, 250, 0.584);
+  color: #00355ba7;
+  border-radius: 0.2em;
+  margin: 10px;
+  text-align: center;
+  padding: 10px;
+  width: 200px;
 }
 
 .bug-preview a {
-    color: lightskyblue;
+  color: rgb(40, 128, 183);
+  text-decoration: none;
 }
 
 .bug-preview span {
-    color: gold;
-}
-
-.info-actions {
+  color: #002946b2;
+  font-weight: bold;
 }
 
 .container {
-    padding-inline: 8rem;
+  padding-inline: 4rem;
+}
+
+.bugs-filter {
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 1rem;
+  color: #00355ba7;
+  background-color: rgba(135, 206, 250, 0.584);
+  width: 100%;
+  max-width: 700px;
+  justify-self: center;
+}
+
+.bugs-filter h2 {
+  margin-top: 0;
+}
+
+.bugs-filter input,
+.bugs-filter select {
+  padding: 8px;
+  letter-spacing: 0.05rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: #6b6b6b;
+  background-color: white;
+}
+
+.bugs-filter-inputs {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 150px 1fr;
+  text-align: left;
+  margin: 10px;
+}
+
+.bugs-filter-inputs label {
+  letter-spacing: 0.05rem;
+}
+
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.bugs-filter button,
+.bug-preview button,
+.info-actions button {
+  cursor: pointer;
+  letter-spacing: 0.05rem;
+  padding: 10px;
+  margin: 15px 5px;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(97, 193, 253);
+  color: #002139a7;
+  background-color: white;
+}
+
+.bugs-filter button:hover,
+.bug-preview button:hover,
+.info-actions button:hover {
+  border: 1px solid rgb(97, 193, 253);
+  background-color: lightskyblue;
 }

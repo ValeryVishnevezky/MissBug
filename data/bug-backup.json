@@ -1,22 +1,83 @@
 [
     {
-        "title": "Infinite Loop Detected",
-        "severity": 4,
-        "_id": "1NF1N1T3"
+      "_id": "abc123",
+      "title": "Cannot save a Car",
+      "severity": 30,
+      "description": "problem when clicking Save",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
     },
     {
-        "title": "Keyboard Not Found",
-        "severity": 3,
-        "_id": "K3YB0RD"
+      "_id": "1NF1N1T3",
+      "title": "Infinite Loop Detected",
+      "severity": 10,
+      "description": "problem with loop",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
     },
     {
-        "title": "404 Coffee Not Found",
-        "severity": 2,
-        "_id": "C0FF33"
+      "_id": "K3YB0RD",
+      "title": "Keyboard Not Found",
+      "severity": 30,
+      "description": "problem with keyboard",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
     },
     {
-        "title": "Unexpected Response",
-        "severity": 1,
-        "_id": "G0053"
+      "_id": "C0FF33",
+      "title": "404 Coffee Not Found",
+      "severity": 20,
+      "description": "problem not found",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
+    },
+    {
+      "_id": "G0053",
+      "title": "Unexpected Response",
+      "severity": 10,
+      "description": "problem with response",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
+    },
+    {
+      "_id": "abc124",
+      "title": "Cannot save a Car",
+      "severity": 30,
+      "description": "problem when clicking Save",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
+    },
+    {
+      "_id": "1NF1N1T4",
+      "title": "Infinite Loop Detected",
+      "severity": 10,
+      "description": "problem with loop",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
+    },
+    {
+      "_id": "K3YB0RD4",
+      "title": "Keyboard Not Found",
+      "severity": 30,
+      "description": "problem with keyboard",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
+    },
+    {
+      "_id": "C0FF34",
+      "title": "404 Coffee Not Found",
+      "severity": 20,
+      "description": "problem not found",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
+    },
+    {
+      "_id": "G0054",
+      "title": "Unexpected Response",
+      "severity": 10,
+      "description": "problem with response",
+      "createdAt": 1542107359454,
+      "labels": ["critical", "need-CR", "dev-branch"]
     }
-]
+  ]
+  
